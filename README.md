@@ -1,280 +1,247 @@
-```markdown
-<p align="center">
-  <img src="https://raw.githubusercontent.com/YourUsername/food-calorie-ai/main/sample_images/food-calorie-banner.png" alt="Food Calorie Estimator AI - Banner" width="100%"/>
-</p>
 
-<div align="center">
+
+---
 
 # 🥗 **Food Calorie Estimator AI**
 
-### 🍔 *AI-Powered Calorie Prediction from Food Photos*
+### 🍔 *Deep Learning App to Estimate Food Calories from Images Trained With 101,000+ Images Dataset*
 
-![Python](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.2-EE4C2C?logo=pytorch&logoColor=white)
-![Gradio](https://img.shields.io/badge/Gradio-UI-15C27A?logo=gradio&logoColor=white)
-![Render](https://img.shields.io/badge/Deploy-Render-6E4AFF?logo=render&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg?logo=github)
+![Food Calorie Estimator](https://user-images.githubusercontent.com/your-username/banner_food_ai.png)
 
-> **Upload a food photo → Get instant food type + calorie estimate**  
-> Powered by **EfficientNet**, **PyTorch**, and **USDA nutrition data**.
-
-[Live Demo](https://your-app.onrender.com) • [Model Details](#-model-pipeline) • [Run Locally](#-local-run)
-
-</div>
+> 🚀 **AI-powered calorie prediction** from food images — built using **PyTorch**, **Gradio**, and **EfficientNet**.
+> Predicts food type and estimated calories in real-time, hosted on **Render** with a smooth, interactive UI.
 
 ---
 
 ## 🌟 **Overview**
 
-A **complete AI pipeline** that:
+This project is an end-to-end **AI system** that:
 
-1. **Detects** food in images  
-2. **Classifies** into **101 categories** (Food-101)  
-3. **Estimates calories** using USDA data  
-4. **Serves results** via a sleek **Gradio web app**
+1. Detects and classifies the food in an image 🍱
+2. Estimates its calorie content 🔥
+3. Displays the result through a beautiful web interface 🌐
+
+The model was trained using the **Food-101 dataset** (over 101,000 images across 101 classes) and fine-tuned with custom **USDA nutrition data** for calorie estimation.
 
 ---
 
 ## 🧠 **Core Features**
 
-| Feature | Description |
-|--------|-------------|
-| Food Classification | Fine-tuned **EfficientNet-B0** → **79.6% accuracy** |
-| Calorie Prediction | **MAE ≈ 6.7 kcal** per serving |
-| Interactive UI | Drag & drop → instant results |
-| Fast & Lightweight | **~0.4s/image** on CPU, **21 MB** model |
-| Deploy Anywhere | Render, Hugging Face, or local |
+✅ Food classification using a fine-tuned **EfficientNet-B0** CNN
+✅ Calorie prediction using **USDA-based mapping**
+✅ Clean and interactive **Gradio** interface
+✅ Fully deployable on **Render** (or Hugging Face, Colab, etc.)
+✅ Lightweight and optimized for **CPU inference**
 
 ---
 
-## 🏗️ **Project Structure**
+## 🏗️ **Project Architecture**
 
-```bash
-food-calorie-ai/
-├── app.py                        # Gradio web app
+```
+📦 food-calorie-ai
+├── app.py                        # Main Gradio application
 ├── requirements.txt              # Dependencies
 ├── data/
-│   ├── class_calorie_mapping.json
-│   ├── metadata.csv
+│   ├── class_calorie_mapping.json   # Food class → Calorie mapping
+│   ├── metadata.csv                # Training metadata
 │   ├── models/
-│   │   ├── mh_net.pth
-│   │   └── mh_net_traced.pt
-│   └── usda/
-├── sample_images/
-│   ├── pizza.jpg
-│   └── salad.jpg
-└── README.md
+│   │   ├── mh_net.pth              # PyTorch model (for retraining)
+│   │   └── mh_net_traced.pt        # TorchScript model (for deployment)
+│   └── usda/                       # USDA dataset folder
+├── README.md
+└── sample_images/                 # Example test images
 ```
 
 ---
 
-## 🔬 **Model Pipeline**
+## 🔬 **Model Development Pipeline**
 
-### 1. Dataset
-- **Food-101**: 101 classes × 1,000 images
-- Augmented with `torchvision`
+### **Step 1. Dataset**
 
-### 2. Preprocessing
+* **Dataset Used:** [Food-101](https://data.vision.ee.ethz.ch/cvl/food-101.tar.gz)
+* 101 classes × 1000 images each
+* Cleaned and preprocessed using torchvision
+
+### **Step 2. Preprocessing**
+
 ```python
 transform = T.Compose([
-    T.Resize((224, 224)),
+    T.Resize((224,224)),
     T.ToTensor(),
-    T.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+    T.Normalize([0.485,0.456,0.406],[0.229,0.224,0.225])
 ])
 ```
 
-### 3. Architecture
-```text
-EfficientNet-B0 (ImageNet)
-├── Classifier → 101 classes (CrossEntropy)
-└── Regressor  → kcal (L1 Loss)
-```
+### **Step 3. Model Architecture**
 
-### 4. Training
+* Base: `EfficientNet-B0` pretrained on ImageNet
+* Custom head for:
+
+  * Softmax classification → Food Type
+  * Linear regression → Calorie Prediction
+
+### **Step 4. Training**
+
 ```python
-optimizer = Adam(lr=3e-4)
-criterion_cls = CrossEntropyLoss()
-criterion_cal = L1Loss()
+optimizer = torch.optim.Adam(model.parameters(), lr=3e-4)
+criterion_cls = torch.nn.CrossEntropyLoss()
+criterion_cal = torch.nn.L1Loss()
 ```
-- **8 epochs** on **Colab Pro (GPU)**
-- **Accuracy**: **79.6%**
-- **MAE**: **6.76 kcal**
 
-### 5. Export
+✅ 8 Epochs on Colab Pro (with CUDA)
+✅ Validation accuracy ~79.6%
+✅ Mean Absolute Error ≈ **6.7 kcal**
+
+### **Step 5. Export**
+
 ```python
 traced = torch.jit.trace(model, torch.randn(1,3,224,224))
-traced.save("data/models/mh_net_traced.pt")
+torch.jit.save(traced, "data/models/mh_net_traced.pt")
 ```
 
 ---
 
-## 🌐 **Web App (Gradio)**
+## 🌐 **Web App (Gradio + Render)**
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/YourUsername/food-calorie-ai/main/sample_images/ui_demo.gif" alt="Gradio UI" width="80%"/>
-  <br><em>↑ Upload image → Get prediction in <1 sec</em>
-</p>
+### **Frontend UI**
+
+![Gradio Interface Example](https://user-images.githubusercontent.com/your-username/gradio_food_ui.png)
+
+Built using **Gradio Interface**:
 
 ```python
 demo = gr.Interface(
     fn=predict,
-    inputs=gr.Image(type="pil"),
-    outputs=gr.Markdown(),
-    title="Food Calorie Estimator AI",
-    examples=[["sample_images/pizza.jpg"]]
+    inputs=gr.Image(type="pil", label="Upload Food Image"),
+    outputs=[gr.Markdown()],
+    title="🍔 Food Calorie Estimator AI",
+    description="Upload a food image to estimate its calorie content."
 )
+```
+
+### **Deployment Command**
+
+```bash
+python app.py
 ```
 
 ---
 
-## ⚙️ **Local Run**
+## ☁️ **Render Deployment Guide**
+
+| Step                  | Command / Setting                 |
+| --------------------- | --------------------------------- |
+| **1️⃣ Build Command** | `pip install -r requirements.txt` |
+| **2️⃣ Start Command** | `python app.py`                   |
+| **3️⃣ Port**          | Render uses `8080` automatically  |
+| **4️⃣ Environment**   | Python 3                          |
+| **5️⃣ Public Link**   | Appears once deployed ✅           |
+
+Ensure your `app.py` ends with:
+
+```python
+demo.launch(server_name="0.0.0.0", server_port=8080)
+```
+
+---
+
+## ⚙️ **Local Installation**
+
+### **1. Clone Repo**
 
 ```bash
 git clone https://github.com/YourUsername/food-calorie-ai.git
 cd food-calorie-ai
+```
+
+### **2. Install Dependencies**
+
+```bash
 pip install -r requirements.txt
+```
+
+### **3. Run App**
+
+```bash
 python app.py
 ```
 
-**Open**: [http://127.0.0.1:7860](http://127.0.0.1:7860)
+Open your browser at:
+👉 `http://127.0.0.1:7860`
 
 ---
 
-## ☁️ **Deploy on Render**
+## 📊 **Performance Metrics**
 
-| Setting | Value |
-|-------|-------|
-| Build Command | `pip install -r requirements.txt` |
-| Start Command | `python app.py` |
-| Port | `8080` |
-| Python | `3.10` |
-
-> In `app.py`:
-> ```python
-> demo.launch(server_name="0.0.0.0", server_port=8080)
-> ```
+| Metric                             | Value                          |
+| ---------------------------------- | ------------------------------ |
+| **Accuracy (Food Classification)** | 79.6%                          |
+| **MAE (Calorie Estimation)**       | 6.76 kcal                      |
+| **Inference Speed (CPU)**          | ~0.4 sec/image                 |
+| **Model Size**                     | 21 MB (EfficientNet-B0 traced) |
 
 ---
 
-## 📊 **Performance**
+## 📈 **Future Enhancements**
 
-| Metric | Value |
-|-------|-------|
-| Accuracy | **79.6%** |
-| Calorie MAE | **6.76 kcal** |
-| Inference (CPU) | **~0.4 sec** |
-| Model Size | **21 MB** |
-
----
-
-## Future Enhancements
-
-<details>
-<summary><strong>Planned Features</strong></summary>
-
-- Multi-food detection (YOLOv8)
-- Portion size estimation
-- Indian food dataset
-- Mobile app (Flutter + ONNX)
-- Voice input (Gradio mic)
-
-</details>
+* [ ] Add **multi-food detection** (object detection)
+* [ ] Integrate **portion-size estimation** using depth data
+* [ ] Train on **custom Indian food dataset**
+* [ ] Add **voice assistant** via Gradio chatbot
+* [ ] Deploy on **mobile (Flutter/React Native)** using ONNX model
 
 ---
 
 ## 🧩 **Tech Stack**
 
-| Category | Tools |
-|--------|-------|
-| Language | Python 3.10 |
-| ML | PyTorch, Torchvision |
-| UI | Gradio |
-| Deploy | Render |
-| Data | Food-101 + USDA |
+| Category        | Tools                                      |
+| --------------- | ------------------------------------------ |
+| **Language**    | Python 3.10                                |
+| **Frameworks**  | PyTorch, Torchvision                       |
+| **UI**          | Gradio                                     |
+| **Deployment**  | Render                                     |
+| **Dataset**     | Food-101 + USDA Nutrition Data             |
+| **Environment** | Google Colab (Training) + Render (Hosting) |
 
 ---
 
 ## 📚 **References**
 
-- [Food-101](https://data.vision.ee.ethz.ch/cvl/datasets_extra/food-101/)
-- [USDA FoodData Central](https://fdc.nal.usda.gov/)
-- [PyTorch](https://pytorch.org/)
-- [Gradio](https://gradio.app/)
-- [Render](https://render.com/)
+* [Food-101 Paper](https://data.vision.ee.ethz.ch/cvl/food-101/)
+* [USDA FoodData Central](https://fdc.nal.usda.gov/)
+* [PyTorch](https://pytorch.org/)
+* [Gradio](https://gradio.app/)
+* [Render Hosting](https://render.com/)
 
 ---
 
 ## 🪪 **License**
 
-```text
-MIT License (c) 2025 Shubham Mohite
+```
+MIT License
+
+Copyright (c) 2025 Shubham Mohite
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 ```
 
 ---
 
 ## 💡 **About the Developer**
 
-<div align="center">
-
-**Shubham Mohite**  
-*AI & Full-Stack Developer | Computer Vision | Health-Tech*
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://linkedin.com/in/shubhammohite)  
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?logo=github)](https://github.com/YourUsername)
-
-</div>
+👨‍💻 **Shubham Mohite**
+AI & Full-Stack Developer | Passionate about Computer Vision and Health-Tech
+🌐 [LinkedIn](https://linkedin.com/in/yourprofile) • [GitHub](https://github.com/Shubham-Mohite7)
 
 ---
 
-<p align="center">
-  <strong>Love this project? Star it on GitHub!</strong>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/github/stars/YourUsername/food-calorie-ai?style=social" alt="Stars"/>
-  <img src="https://img.shields.io/github/forks/YourUsername/food-calorie-ai?style=social" alt="Forks"/>
-</p>
-```
-
----
-
-### 2. Add This **Custom Banner Image**
-
-**File:** `sample_images/food-calorie-banner.png`
-
-**Image URL (hosted via GitHub):**
-```
-https://raw.githubusercontent.com/YourUsername/food-calorie-ai/main/sample_images/food-calorie-banner.png
-```
-
-#### Download & Add This Banner (1200×300px)
-
-![Food Calorie Estimator AI Banner](https://i.imgur.com/9kR5vL2.png)
-
-> **Right-click → Save Image As** → Save as:  
-> `sample_images/food-calorie-banner.png`
-
-**Then push to GitHub:**
-```bash
-git add sample_images/food-calorie-banner.png
-git commit -m "Add professional banner"
-git push
-```
-
----
-
-### Final Folder Structure
-```
-food-calorie-ai/
-├── app.py
-├── requirements.txt
-├── data/
-│   └── models/
-├── sample_images/
-│   ├── food-calorie-banner.png   ← NEW
-│   ├── pizza.jpg
-│   └── salad.jpg
-└── README.md                     ← Paste above content
-```
+✨ *If you like this project, please give it a ⭐ on GitHub! It helps others find it too.*
 
 ---
