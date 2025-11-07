@@ -4,7 +4,7 @@
 
 # 🥗 **Food Calorie Estimator AI**
 
-### 🍔 *Deep Learning App to Estimate Food Calories from Images Trained With 101,000+ Images Dataset*
+### 🍔 *Deep Learning App to Estimate Food Calories Trained With 101,000+ Images Dataset*
 
 ![Food Calorie Estimator]
 
