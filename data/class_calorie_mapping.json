@@ -1,0 +1,406 @@
+{
+  "apple_pie": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "baby_back_ribs": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "baklava": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "beef_carpaccio": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "beef_tartare": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "beet_salad": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "beignets": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "bibimbap": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "bread_pudding": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "breakfast_burrito": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "bruschetta": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "caesar_salad": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "cannoli": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "caprese_salad": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "carrot_cake": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "ceviche": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "cheesecake": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "cheese_plate": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "chicken_curry": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "chicken_quesadilla": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "chicken_wings": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "chocolate_cake": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "chocolate_mousse": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "churros": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "clam_chowder": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "club_sandwich": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "crab_cakes": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "creme_brulee": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "croque_madame": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "cup_cakes": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "deviled_eggs": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "donuts": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "dumplings": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "edamame": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "eggs_benedict": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "escargots": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "falafel": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "filet_mignon": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "fish_and_chips": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "foie_gras": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "french_fries": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "french_onion_soup": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "french_toast": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "fried_calamari": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "fried_rice": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "frozen_yogurt": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "garlic_bread": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "gnocchi": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "greek_salad": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "grilled_cheese_sandwich": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "grilled_salmon": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "guacamole": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "gyoza": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "hamburger": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "hot_and_sour_soup": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "hot_dog": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "huevos_rancheros": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "hummus": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "ice_cream": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "lasagna": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "lobster_bisque": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "lobster_roll_sandwich": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "macaroni_and_cheese": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "macarons": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "miso_soup": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "mussels": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "nachos": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "omelette": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "onion_rings": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "oysters": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "pad_thai": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "paella": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "pancakes": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "panna_cotta": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "peking_duck": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "pho": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "pizza": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "pork_chop": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "poutine": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "prime_rib": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "pulled_pork_sandwich": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "ramen": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "ravioli": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "red_velvet_cake": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "risotto": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "samosa": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "sashimi": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "scallops": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "seaweed_salad": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "shrimp_and_grits": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "spaghetti_bolognese": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "spaghetti_carbonara": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "spring_rolls": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "steak": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "strawberry_shortcake": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "sushi": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "tacos": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "takoyaki": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "tiramisu": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "tuna_tartare": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  },
+  "waffles": {
+    "kcal_per_100g": 200.0,
+    "typical_grams": 200.0
+  }
+}
