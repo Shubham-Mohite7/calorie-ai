@@ -6,7 +6,7 @@
 
 ### 🍔 *Deep Learning App to Estimate Food Calories from Images Trained With 101,000+ Images Dataset*
 
-![Food Calorie Estimator](https://user-images.githubusercontent.com/your-username/banner_food_ai.png)
+![Food Calorie Estimator]
 
 > 🚀 **AI-powered calorie prediction** from food images — built using **PyTorch**, **Gradio**, and **EfficientNet**.
 > Predicts food type and estimated calories in real-time, hosted on **Render** with a smooth, interactive UI.
@@ -105,7 +105,7 @@ torch.jit.save(traced, "data/models/mh_net_traced.pt")
 
 ### **Frontend UI**
 
-![Gradio Interface Example](https://user-images.githubusercontent.com/your-username/gradio_food_ui.png)
+![Gradio Interface Example]
 
 Built using **Gradio Interface**:
 
