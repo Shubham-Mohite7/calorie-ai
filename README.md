@@ -238,7 +238,7 @@ copies or substantial portions of the Software.
 
 👨‍💻 **Shubham Mohite**
 AI & Full-Stack Developer | Passionate about Computer Vision and Health-Tech
-🌐 [LinkedIn](https://linkedin.com/in/yourprofile) • [GitHub](https://github.com/Shubham-Mohite7)
+🌐 [LinkedIn](https://linkedin.com/in/elite-shubham) • [GitHub](https://github.com/Shubham-Mohite7)
 
 ---
 
